@@ -1,0 +1,28 @@
+<!-- <table>
+    <thead>
+        <tr>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td> -->
+<!-- this is how we give the required parameters to the link -->
+<!-- <a href="#" [routerLink]="['/employee', emp.empName, emp.empId]">{{emp.empDept}}</a>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+
+<!-- <h1>Employee ID : {{id}}</h1>
+<h1>Employee ID : {{name}}</h1> -->
+
+<h1>Employees</h1>
+<div>
+    <ul>
+        <li *ngFor="let emp of employees">
+            <!-- [queryParams] takes parameters in as an object -->
+            <a href="#" [routerLink]="['/employee']" [queryParams]="{id: emp.id, name: emp.name}">{{emp.name}}</a>
+        </li>
+    </ul>
+</div>

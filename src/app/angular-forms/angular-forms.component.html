@@ -1,0 +1,32 @@
+<!-- (ngSubmit)="submitForm() is the forms directive used to bind a method in the component to the form's submit event -->
+<!-- essentially skips the (click)="method()" apporach -->
+<!-- #myForm="ngForm" is used to create an instance of the NgForm class. giving us form related functionalities -->
+<!-- we pass in our reference variable to the method -->
+<!-- <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+    <div>
+        <label for="username">Name</label>
+        <input type="text" name="username" [(ngModel)]="user.username" required />
+    </div>
+    <button type="submit">Submit</button>
+</form> -->
+
+<!-- <div class="form-container">
+    <h1>Submit Form</h1>
+    <form #myForm="ngForm" (ngSubmit)="formSubmit(myForm)">
+        <div class="inputbox"> -->
+            <!-- this approach removes the need to explicitly define a variable name in the ts file -->
+            <!-- 2 way binding is still a better approach -->
+            <!-- <input type="text" name="name" ngModel required #name="ngModel">
+            <span>Name</span>
+        </div>
+        <div class="inputbox">
+            <input type="email" name="email" ngModel required #email="ngModel">
+            <span>Email</span>
+        </div>
+        <div class="inputbox">
+            <button type="submit">Submit</button>
+            <button type="button" (click)="resetValue(myForm)">Reset</button>
+            <button type="button" (click)="setDefault(myForm)">Set Default Value</button>
+        </div>
+    </form>
+</div> -->

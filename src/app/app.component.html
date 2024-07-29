@@ -1,0 +1,471 @@
+<!-- one way binding using interpolation -->
+<!-- interpolation treats all data types as a string. including booleans. -->
+<!-- interpolation is not recommended with properties -->
+<!-- good for string related uses. -->
+<!-- <input type="text" value="{{inputVal}}" disabled="{{isDisabled}}">
+<br /><br /> -->
+
+
+<!-- property binding at play. using the [] around anything like id, class, or href -->
+<!-- angular treats it as a target property. DOM property = "value" -->
+<!-- target properties can read booleans as is -->
+<!-- good for non string related uses -->
+<!-- <input type="text" [value]="inputVal" [disabled]="isDisabled">
+<br /><br /><br /><br />
+<img [src]="imgSrc" alt="">
+<br /><br /><br /><br /> -->
+
+
+<!-- Event binding. (target name) + targetFunction() -->
+<!-- <button type="button" (click)="display('Welcome')">Click Me</button>
+<br /><br /><br /><br />
+<h1 (mouseover)="incr()">Increment {{counter}}</h1>
+<br /><br /><br /><br /> -->
+
+
+<!-- $event allows us to view or use the event object -->
+<!-- <input type="text" (keyup)="onKeyPress($event)">
+<br /><br /><br /><br /> -->
+
+
+<!-- bind the event with key modifiers. Only works in Angular -->
+<!-- <input type="text" (keydown.shift.y)="isShift()">
+<br /><br /><br /><br /> -->
+
+
+<!-- ngModel is part of FormsModule library -->
+<!-- [()] is a combination is preperty and event binding -->
+<!-- two way binding syntax. the data is reflected on both the component and DOM sides -->
+<!-- <input type="text" [(ngModel)]="staticInput">
+<br /><br />
+<input type="text" [(ngModel)]="dynamicInput">
+<h1>{{dynamicInput}}</h1>
+<br /><br /><br /><br />
+
+
+<div class="container">
+  <h1>Counter Example</h1>
+  <div class="btn-container">
+      <button (click)="counterF('decr')">--</button>
+      <p>{{count}}</p>
+      <button (click)="counterF('incr')">++</button>
+  </div>
+</div> -->
+
+
+<!-- similar to if-else statement and used for adding/removing elements from DOM -->
+<!-- <div *ngIf="display">
+  Structural Directive
+</div> -->
+<!-- conditionally renderd elements based on if check -->
+<!-- <h1 *ngIf="num > 0">Number is greater than 0</h1>
+<h1 *ngIf="num == 0">Number is 0</h1>
+<h1 *ngIf="num < 0">Number is lees than 0</h1>
+<br /><br /><br /><br /> -->
+
+
+<!-- instead of using a separate function, we can simply put the code here -->
+<!-- <button type="button" (click)="this.dElement = !this.dElement;">Show</button>
+<div *ngIf="dElement">Display this element</div> -->
+
+
+<!-- the parent element is the one containing the *ngFor directive -->
+<!-- <div *ngFor="let value of fullStackDev">
+  <ul>
+    <li>{{value.id}}</li>
+    <li>{{value.name}}</li>
+  </ul>
+</div> -->
+
+
+<!-- toggle the showL variable with ! -->
+<!-- <button (click)="showL = !showL">Show List</button> -->
+<!-- check variable -->
+<!-- <ul *ngIf="showL"> -->
+<!-- if true, run for loop -->
+<!--   <li *ngFor="let item of listItems" style="margin-bottom: 15px;">
+    {{item.name}} is {{item.age}} years old
+  </li>
+</ul> -->
+
+
+<!-- just like a regular switch case -->
+<!-- <div [ngSwitch]="age" style="text-align: center; font-size: 20px;">
+  <p *ngSwitchCase="10">person is 10 years old</p>
+  <p *ngSwitchCase="20">person is 20 years old</p>
+  <p *ngSwitchCase="30">person is 30 years old</p>
+  <p *ngSwitchDefault>person is {{age}} years old</p>
+</div> -->
+
+
+<!-- <div class="container">
+  <label>Enter your age : </label>
+  <input type="text" (input)="checkEligibility()" [(ngModel)]="age"/>
+  <div [ngSwitch]="isEligible">
+      <p *ngSwitchCase="true">You are eligible to vote</p>
+      <p *ngSwitchDefault>You are not eligible to vote!</p>
+  </div>
+</div> -->
+
+<!-- we can pass in as a variable name and put it in the app.component -->
+<!-- or we can pass in a string -->
+<!-- we can pass several classes separated by a space -->
+<!-- <p [ngClass]="['updateStyles', 'italicText']">Example of ngClass directive</p> -->
+<!-- <p [ngClass]="{'updateStyles':true, 'italicText':false}">Example of ngClass directive</p> -->
+<!-- <p [ngClass]="'updateStyles italicText'">Example of ngClass directive</p>
+<input type="text" placeholder="Enter text here..." 
+(input)="textInput($event)" [ngClass]="{'txt' : hasText}"/> -->
+
+
+<!-- <button (click)="toggleMode()">{{colorMode === 'light-mode' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}}</button>
+<div class="box" [ngClass]="colorMode">
+  <h1>Light Mode</h1>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia vitae placeat harum blanditiis? Temporibus nam
+    saepe tempora debitis veniam sed illo hic illum eligendi repellendus. Quo similique minus voluptas quia.</p>
+</div>
+
+
+<div class="box" [ngClass]="colorMode">
+  <h1>Dark Mode</h1>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia vitae placeat harum blanditiis? Temporibus nam
+    saepe tempora debitis veniam sed illo hic illum eligendi repellendus. Quo similique minus voluptas quia.</p>
+</div> -->
+
+<!-- [ngStyle] is used for inline styles and follows the key value pair syntax -->
+<!-- used to change styles dynamically  based on conditions-->
+<!-- <div style="text-align: center;">
+  <p [ngStyle]="{'color': 'maroon', 'font-size': '20px'}"> Example of [ngStyle] directive</p>
+</div> -->
+<!-- we can also create an object with our selected styles and pass them in to the [ngStyle] directive -->
+<!-- <div style="text-align: center;">
+  <p [ngStyle]="applyVal"> Example of [ngStyle] directive</p>
+</div> -->
+
+
+<!-- <form *ngIf="!formSubmitted">
+  <h1>Submit Form</h1>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" [(ngModel)]="nm" [ngStyle]="{'background-color': nm ? 'lightgreen' : '#ffb6c1'}"
+      required />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" [(ngModel)]="em"
+      [ngStyle]="{'background-color': emailIsValid ? 'lightgreen' : '#ffb6c1'}" (input)="checkEmailValidation(em)"
+      required />
+  </div>
+
+  <button type="submit" (click)="showMessage()">Submit</button>
+</form>
+<p *ngIf="formSubmitted">Form is successfully submitted</p> -->
+
+
+<!-- ng-container is used to group elements together without creating a DOM element -->
+<!-- ng-container is commented out in the DOM -->
+<!-- ng-container is often used with *ngFor or *ngIf like so <ng-container *ngIf='?'>  -->
+<!-- it is mainly used as a wrapper for the elements inside -->
+<!-- <h1>Normal Div</h1>
+<div>
+  <p>Item 1</p>
+  <p>Item 2</p>
+  <p>Item 3</p>
+  <p>Item 4</p>
+</div>
+<hr>
+<h1>ng-container</h1>
+<ng-container>
+  <p>Item 1</p>
+  <p>Item 2</p>
+  <p>Item 3</p>
+  <p>Item 4</p>
+</ng-container> -->
+<!-- example of ng-container with *ngFor -->
+<!-- <ng-container *ngFor="let item of subjectList">
+  <ul>
+    <li>{{item.subCode}}</li>
+    <li>{{item.name}}</li>
+  </ul>
+</ng-container> -->
+
+<!-- ng-template is used for giving a block of template code to allow for reuse -->
+<!-- much like the ng-container, it is not rendered in the DOM-->
+<!-- unlike ng-container, it cant be rendered on its own-->
+<!-- <ng-container *ngIf="isAuthorized; else notAuthorized">
+  <p>Authorized user</p>
+</ng-container> -->
+<!-- reference variable needed to access ng-template -->
+<!-- we create a reference variable by adding a # before the name as shown -->
+<!-- <ng-template #notAuthorized>
+  <h2>Not Authorized</h2>
+</ng-template> -->
+
+<!-- <ng-container *ngIf="listItems.length > 0; else noItems">
+  <ul>
+    <li *ngFor="let item of listItems">{{item}}</li>
+  </ul>
+</ng-container>
+<ng-template #noItems>
+  <p>No items to display!</p>
+</ng-template> -->
+
+<!-- <div class="box">
+  <div class="input-container">
+      <input type="text" [(ngModel)]="user"/>
+      <label for="">Full Name</label>
+  </div>
+  <ng-container *ngIf="user !== ''; else notValid"></ng-container>
+  <ng-template #notValid>
+      <h3>Please enter your name</h3>
+  </ng-template>
+</div> -->
+
+<!-- *ngTemplateOutlet is used to render a template without a condition -->
+<!-- we can use context : {} to pass in objects or properties that can be accessed -->
+<!-- by using let-name="" inside the template  -->
+<!-- the purpose of the context object is to provide data to the ng-template -->
+<!-- <ng-template #show let-msg="showMessage">
+  <p style="font-size: 20px;">Output : {{msg}}</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="show; context : {showMessage : calc()}">
+</ng-container> -->
+
+<!-- $implicit will allow the given value to be treated as the default value -->
+<!-- that way let-msg will automatically be assigned the value -->
+<!-- <ng-template #show let-msg>
+  <p style="font-size: 20px;">Output : {{msg}}</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="show; context : {$implicit : calc()}">
+</ng-container> -->
+
+
+<!-- <app-portfolio-b></app-portfolio-b>
+ -->
+
+<!-- <input type="text" (keydown)="textChange()" [(ngModel)]="nm">
+<h1 [ngClass]="{greenText: seven, addBorder: nm }">{{nm}}</h1> -->
+
+<!-- <button (click)="updateValue()">Update</button>
+<app-lifecycle-hooks [inputValue]="inputValues"></app-lifecycle-hooks> -->
+<!-- <app-lifecycle-hooks [user]="user"></app-lifecycle-hooks>
+<button (click)="changeUserName()">Update</button> -->
+
+<!-- <h1>Component Updation Hooks</h1>
+<div>
+  <h2>Parent Component</h2>
+  <button (click)="sendData()">Generate Number</button>
+
+  <app-lifecycle-hooks>
+    <h3>{{dFP}}</h3>
+    <div #contentWrapper>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam voluptate quam veritatis in molestias pariatur ad
+      cum quos! Unde ipsam esse eius, cum sed quaerat distinctio nihil iste expedita quae.</div>
+  </app-lifecycle-hooks>
+</div> -->
+
+<!-- <div>
+  <h2>Parent Component</h2>
+  <button (click)="toggle()"> Hide/Show Child</button>
+</div>
+<app-lifecycle-hooks *ngIf="displayComponent"></app-lifecycle-hooks> -->
+
+<!-- <div>
+  <h2>Parent Component</h2> -->
+<!-- [] has to be used to receive the data and bind it from the parent -->
+<!-- <app-decorators [receiveMessage]="displayMessage"></app-decorators>
+</div> -->
+
+<!-- <div class="container">
+  <div class="parent">
+    <h2>Data in App Component</h2>
+    <pre>{{courses | json}}</pre>
+  </div>
+
+  <div class="child">
+    <h2>Child Component</h2>
+    <app-decorators [showData]="courses"></app-decorators>
+  </div>
+</div> -->
+
+<!-- <app-decorators (myEvent)="receiveChildEvent($event)"></app-decorators>
+<div>
+  <h2>Parent Component</h2>
+  <p>{{message}}</p>
+</div> -->
+
+<!-- <h2>Parent Component</h2>
+<button (click)="addItem()">Add Item</button>
+<app-decorators *ngIf="itemsArr.length > 0" [items]="itemsArr" (itemDeleted)="deleteItem($event)"></app-decorators> -->
+
+<!--  /* DOM Manipulation */ -->
+<!-- <div>
+  <h2>App Component</h2>
+  <button #btnIncr (click)="incrementChildCounter()">Increment Counter</button>
+  <app-decorators></app-decorators>
+</div> -->
+
+<!-- <div>
+  <h2>App Component</h2>
+  <app-decorators>
+    <section>
+      <h3>Heading</h3>
+      <p #showPara>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus impedit, magnam labore vero quod quibusdam
+        soluta mollitia perspiciatis ipsa necessitatibus deserunt quas possimus rem voluptatem, amet ratione voluptas
+        tempore! Facere.</p>
+    </section>
+  </app-decorators>
+</div> -->
+
+<!-- we attach the host property and angular will automatically detect changes -->
+<!-- <div appHighlightElement>
+  <h2>App Component</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque nisi sed delectus libero possimus deserunt
+    laborum itaque, quas totam quis. Quasi ratione obcaecati porro reprehenderit sequi laudantium minima assumenda?
+  </p>
+</div> -->
+
+<!-- <div>
+  <label for="colorPicker">Select Color</label>
+  <input type="color" name="colorPicker" id="colorPicker" #colorInput>
+</div> -->
+<!-- binding this property with the selectedColor reference -->
+<!-- <div class="colorBox" [style.backgroundColor]="selectedColor">
+  <h1>App Component</h1>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum ad similique corrupti optio neque porro
+    quasi rerum eligendi sed quod nam distinctio quam fugiat cumque ex, illo cum nemo?</p>
+</div> -->
+
+<!-- <app-pipes></app-pipes> -->
+
+<!-- routing  -->
+<!-- this line is crucial to display the correct component/route  -->
+<!-- <router-outlet> -->
+<!-- we use routerLink instead of href. it is an attribute directive -->
+<!-- it can be place on any click event besides a link tag -->
+<!-- when attached to an anchor tag, it behaves just like a hyperlink  -->
+<!--   <a routerLink="./home">Home Component</a>
+</router-outlet> -->
+
+<!-- Nav example with routing -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar With Routes</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" routerLink="./home">Home</a></li>
+                <li><a href="#" routerLink="./work">Work</a></li>
+                <li><a href="#" routerLink="./about">About</a></li>
+                <li><a href="#" routerLink="./services">Services</a></li>
+                <li><a href="#" routerLink="./news">News</a></li>
+                <li><a href="#" routerLink="./contact">Contact</a></li>
+            </ul>
+        </nav>
+        <router-outlet></router-outlet>
+    </header>
+</body>
+</html> -->
+
+<!-- <router-outlet>
+  <nav>
+    <ul>
+        <li><a href="#" routerLink="./home">Home</a></li>
+        <li><a href="#" routerLink="./about">About</a></li>
+    </ul>
+</nav>
+</router-outlet> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" routerLink="/home">Home</a></li>
+        <li class="dropdown">
+          <a href="#" routerLink="/products">Products</a>
+          <ul class="dropdown-menu">
+            <li><a href="#" routerLink="/products/shirts">Shirts</a></li>
+            <li><a href="#" routerLink="/products/pants">Pants</a></li>
+            <li><a href="#" routerLink="/products/shoes">Shoes</a></li>
+          </ul>
+        </li>
+        <li><a href="#" routerLink="/contact">Contact</a></li>
+        <li><a href="#" routerLink="/about">About</a></li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
+  </section>
+</body>
+
+</html> -->
+
+<!-- <router-outlet></router-outlet> -->
+
+<!-- Services -->
+<!--  
+<h1>Employee Details</h1>
+<ul>
+    <li *ngFor="let emp of employees">
+        Employee : {{emp.name}}
+        <button (click)="showDetails(emp.id)">Show Details</button>
+
+        <div *ngIf="emp.id === empId">
+            <p class="details">ID: {{emp.id}}</p>
+            <p class="details">Department: {{emp.department}}</p>
+            <p class="details">Location: {{emp.location}}</p>
+            <p class="details">Phone: {{emp.phone}}</p>
+        </div>
+    </li>
+</ul> -->
+
+<!-- <app-service-example></app-service-example> -->
+
+<!-- <h1>{{msg}}</h1> -->
+
+<!-- <h1>Admin Data</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <td>{{ getAdmin.getData.id }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ getAdmin.getData.name }}</td>
+    </tr>
+    <tr>
+        <th>Department</th>
+        <td>{{ getAdmin.getData.dept }}</td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td>{{ getAdmin.getData.position }}</td>
+    </tr>
+</table> -->
+
+<!-- <button (click)="displayAlert()">Show</button> -->
+
+<!-- <h1>useFactory Property</h1>
+<h3>{{message}}</h3> -->
+
+
+<!-- Angular Routing ----------------------------------->
+<!-- <app-angular-reactive-forms></app-angular-reactive-forms> -->
+
+<router-outlet></router-outlet>

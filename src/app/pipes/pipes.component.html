@@ -1,0 +1,89 @@
+<!-- use | to apply a pipe expression -->
+<!-- <h1 style="text-align: center;">{{showDate | date: 'dd-MM-yyyy'}}</h1>
+<h1 style="text-align: center;">{{showDate | date: 'dd-MMM-yyyy'}}</h1> -->
+<!-- we can also put more than one pipe -->
+<!-- <h1 style="text-align: center;">{{showDate | date: 'dd-MMMM-yyyy' | uppercase}}</h1>
+<h1 style="text-align: center;">{{showDate | date: 'dd/MM/yyyy'}}</h1> -->
+
+<!-- different examples of built in pipes -->
+<!-- <div class="table-container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Salary</th>
+        </tr>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.name | titlecase}}</td>
+            <td>{{emp.state | slice:0:2 | uppercase}}</td>
+            <td>{{emp.salary | currency:'USD'}}</td>
+        </tr>
+    </table>
+</div> -->
+<!-- Slice can also display items in an array from a given range -->
+<!-- <p>{{employees | slice:0:2}}</p> -->
+<!-- you can also display a single element -->
+<!-- <p>{{employees | slice:3}}</p> -->
+
+<!-- A good way to limit and view an array without modifying the original array -->
+<!-- <div class="product-grid">
+    <div class="product-card" *ngFor="let img of products | slice: startI : endI">
+        <h2>{{img.name}}</h2>
+        <img [src]="img.imageUrl" height="200px">
+    </div>
+    <div class="btn-container">
+        <button type="button" (click)="prevPage()" [disabled]="startI == 0">previous</button>
+        <button type="button" (click)="nextPage()" [disabled]="endI >= products.length">next</button>
+    </div>
+</div> -->
+
+
+<!-- <p>{{110 | number: '3.2-2'}}</p>
+<p>{{110 | number: '3.3-4'}}</p> -->
+
+<!-- this example will round up the number -->
+<!-- <p>{{110.66 | number: '3.1-1'}}</p>
+
+<p>{{pi | number: '1.2-2'}}</p> -->
+
+<!-- <div class="container">
+    <H2>Weight converter</H2>
+    <div class="input-group">
+        <label for="wInPounds"> Enter weight in pounds</label>
+        <input type="number" id="wInPounds" [(ngModel)]="wPound" (keyup)="convert()">
+    </div>
+    <button (click)="convert()">Convert</button>
+    <br>
+    <p>Weight in kilograms: {{wKilo | number: '1.2-2'}}</p>
+</div> -->
+
+<!-- <div>
+    <h1>User information</h1>
+    <h4>Without JSON</h4>
+    <p>{{userDetails}}</p>
+    <h4>With JSON</h4>
+    <p>{{userDetails | json}}</p>
+</div> -->
+
+<!-- Custom Pipes -->
+<!-- <h1 style="text-align: center;">{{ 'Good ' | appendText: 'Morning'}}</h1> -->
+
+<!-- <h1>Given Array: <span>[{{numbers}}]</span></h1>
+<div class="button-container">
+    <button type="button" (click)="sortOrder = 'asc'; showSorting()">Sort Ascending</button>
+    <button type="button" (click)="sortOrder = 'desc'; showSorting()">Sort Descending</button>
+</div>
+<div *ngIf="showList" class="sorted-output">
+    <h2 *ngIf="sortOrder === 'asc'">Ascending Order</h2>
+    <h2 *ngIf="sortOrder === 'desc'">Descending Order</h2>
+    <ul class="number-list">
+        <li *ngFor="let num of sortedNumbers">{{num}}</li>
+    </ul>
+</div> -->
+
+<!-- <div>
+    <button type="button" (click)="incrementCounter()"> Increment </button>
+    <p>Counter Value: {{counterVal | SortNumbers}}</p>
+</div> -->
+<!-- <p>The sum is {{ myArray | SortNumbers}}</p>
+<button (click)="updateValue()">Update Value</button> -->
