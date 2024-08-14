@@ -1,0 +1,14 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "name": "Samsung s23",
+      "price": 899
+    },
+    {
+      "id": 0,
+      "name": "Test Product",
+      "price": 39.99
+    }
+  ]
+}

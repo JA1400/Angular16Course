@@ -467,5 +467,115 @@
 
 <!-- Angular Routing ----------------------------------->
 <!-- <app-angular-reactive-forms></app-angular-reactive-forms> -->
+<!-- 
+<router-outlet></router-outlet> -->
 
-<router-outlet></router-outlet>
+<!-- Async Pipe - Observables -->
+<!-- <h1>Lazy loading modules</h1>
+<button routerLink="/first">First Module</button>
+<button routerLink="/second">Second Module</button>
+<router-outlet></router-outlet> -->
+<!-- 
+<div>
+  <h1>Fetching Data From JSON</h1> -->
+<!-- we need to provide an alias to the observable as we plan to iterate over it later -->
+<!--   <ng-container *ngIf="jsonData$ | async as data; else loading">
+      <table>
+          <thead>
+              <tr>
+                  <th>Categories</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let category of data">
+                  <td>{{category.name}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </ng-container>
+  <ng-template #loading>
+      <p class="loading-msg">Loading data...</p>
+  </ng-template>
+</div> -->
+
+<!-- RxJS in depth -->
+
+<!-- <h1>RxJS ( timer ) Operator</h1>
+<div *ngIf="isLoading; else fetchContent">
+    <div class="loading-spinner">
+        Loading...
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<ng-template #fetchContent>
+    <div>
+        <p>{{fetchData}}</p>
+    </div>
+</ng-template> -->
+
+<!-- <h1>RxJS ( map ) Operator</h1>
+<div> -->
+<!-- since cursorPosition$ returns an observable with 2 properties -->
+<!-- we need to specify which property to display, else we get object.Object -->
+<!--   <p>Cursor X {{(cursorPosition$ | async)?.x}}</p>
+  <p>Cursor Y {{(cursorPosition$ | async)?.y}}</p>
+</div> -->
+
+<!-- HttpClient -->
+
+<!-- <div>
+  <button (click)="getData()">Get Data</button>
+</div>
+<ng-container *ngIf="responseData$ != null">
+  <h3>Response Data</h3> -->
+  <!-- <pre>{{responseData | json}}</pre> -->
+  <!-- <pre>{{responseData$ | async | json}}</pre> -->
+<!--   <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address(Zipcode)</th>
+      </tr>
+    </thead> -->
+    <!-- we dont use the json and we use 'as' iterate over the data -->
+<!--     <tbody *ngIf="(responseData$ | async) as data"> -->
+      <!-- now we can iterate over is using the reference name -->
+<!--       <tr *ngFor="let user of data">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.address.street}}, {{user.address.city}}, {{user.address.zipcode}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container> -->
+
+<!-- <div>
+  <button (click)="postData()">Post Data</button>
+</div>
+
+<div>
+  <button (click)="putData()">Put Data</button>
+</div>
+
+<div>
+  <button (click)="deleteData()">Delete Data</button>
+</div> -->
+
+<!-- Crud App -->
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">Products</a>
+    </div>
+</nav>
+<router-outlet></router-outlet> -->
+
+<!-- Signals -->
+<app-signals></app-signals>

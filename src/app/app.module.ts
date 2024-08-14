@@ -41,6 +41,10 @@ import { AngularFormsComponent } from './angular-forms/angular-forms.component';
 import { AngularReactiveFormsComponent } from './angular-reactive-forms/angular-reactive-forms.component';
 import { AdminGuardComponent } from './admin-guard/admin-guard.component';
 import { FormGuardComponent } from './form-guard/form-guard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsModule } from './products/products.module';
+import { ProductsService } from './services/products.service';
+import { SignalsComponent } from './signals/signals.component';
 
 /* export function showGreetingMessage() {
   const currentHour = new Date().getHours();
@@ -85,7 +89,8 @@ import { FormGuardComponent } from './form-guard/form-guard.component';
     AngularFormsComponent,
     AngularReactiveFormsComponent,
     AdminGuardComponent,
-    FormGuardComponent
+    FormGuardComponent,
+    SignalsComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +98,10 @@ import { FormGuardComponent } from './form-guard/form-guard.component';
     /* we then import it */
     FormsModule,
     /* we then inport it */
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // essential  to use httpClient
+    HttpClientModule,
+    ProductsModule
   ],
   /* this makes services available for injection */
   /* any injectable is available to any component in the ngModule */
@@ -156,6 +164,7 @@ import { FormGuardComponent } from './form-guard/form-guard.component';
       provide: 'GREETING_MESSAGE_VALUE',
       useValue: 'Hello',
     }, */
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
